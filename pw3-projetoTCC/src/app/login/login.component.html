@@ -1,0 +1,54 @@
+<form [formGroup]="loginForm" (ngSubmit)="submit()"> <!--[formGroup]="form"-->
+  <div>
+    <label>Usuário:
+      <input formControlName="username"/>
+
+      @if (loginForm.get('username')?.touched && loginForm.get('username')?.invalid) { <!--&& form.get('username')?.invalid-->
+        <div>
+          @if (loginForm.get('username')?.errors?.['required']){
+              <small>O nome de usuário é obrigatório</small>
+          }
+        </div>
+      }
+    </label>
+  </div>
+
+  <div formGroupName="passwords">
+    <div>
+      <label>Senha:
+        <input type="password" formControlName="password">
+
+        @if (loginForm.get('passwords.password')?.touched && loginForm.get('passwords.password')?.invalid) { <!--&& form.get('username')?.invalid-->
+          <div>
+            @if (loginForm.get('passwords.password')?.errors?.['required']){
+                <small>A senha do usuário é obrigatória</small>
+            }
+          </div>
+        }
+      </label>
+    </div>
+
+    <div>
+      <label>Confirmar senha:
+        <input type="password" formControlName="confirmPassword">
+
+        @if (loginForm.get('passwords.confirmPassword')?.touched && loginForm.get('passwords.confirmPassword')?.invalid) { <!--&& form.get('username')?.invalid-->
+          <div>
+            @if (loginForm.get('passwords.confirmPassword')?.errors?.['required']){
+                <small>A confirmação de senha é obrigatória</small>
+            }
+          </div>
+        }
+      </label>
+    </div>
+
+    @if(loginForm.get('passwords')?.errors?.['senhasDiferente'] && loginForm.get('passwords')?.touched){
+      <div>
+          <small>As senhas não são iguais</small>
+      </div>
+    }
+
+  </div>
+
+  <button type="submit">Entar</button>
+</form>
