@@ -9,6 +9,9 @@ import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validatio
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  userBase : string = 'Marion';
+  passwordBase : string = '123HAS';
+  login : boolean = false;
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
@@ -40,4 +43,18 @@ export class LoginComponent {
     return null;
   }
 
+    onAutenticar(){
+    let username = this.loginForm.get('username')?.value;
+    let password = this.loginForm.get('password')?.value;
+
+    if(username == this.userBase && password == this.passwordBase){
+      this.login = true;
+      alert("Marion");
+    }
+    else{
+      this.login = false;
+      alert("NoMarion");
+    }
+
+  }
 }
