@@ -1,8 +1,9 @@
+<div class="container">
 <form [formGroup]="loginForm" class="loginForm" (ngSubmit)="submit()"> <!--[formGroup]="form"-->
  <div class="Campo">
-  <div>
+  <div class="usuario">
     <label>Usuário:
-      <input formControlName="username"/>
+      <input formControlName="username" class="inputNome"/>
 
       @if (loginForm.get('username')?.touched && loginForm.get('username')?.invalid) { <!--&& form.get('username')?.invalid-->
         <div>
@@ -17,7 +18,7 @@
   <div formGroupName="passwords" class="senha">
     <div>
       <label>Senha:
-        <input type="password" formControlName="password">
+        <input type="password" formControlName="password" class="inputSenha">
 
         @if (loginForm.get('passwords.password')?.touched && loginForm.get('passwords.password')?.invalid) { <!--&& form.get('username')?.invalid-->
           <div>
@@ -55,3 +56,4 @@
   <button type="submit" (click)="onAutenticar()">Autenticar</button>
  </div>
 </form>
+</div>

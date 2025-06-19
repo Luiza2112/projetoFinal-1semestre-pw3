@@ -7,27 +7,50 @@
     font-family: "Poppins", sans-serif;
 }
 
+.container{
+    background-color: white;
+    padding-left: 36vw;
+    padding-top: 30vh;
+
+}
+
 .loginForm{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 45vh;
+    width: 25vw;
     background-size: cover;
     background-position: center;
-    background-color: #44A1A0;
+    background-color: #78c4c2;
+    border-width: 2vw; /*Não funcionou*/
+    border-color: #196360; /*Não funcionou*/
+    border-radius: 2vh;
 }
 
 .campo{
    display: flex;
    flex-direction: column;
-   gap: 25px;
+   gap: 1.3vw;
    background-color: white; 
-   padding: 60px;
-   border-radius: 10px;
+   padding: 3vw;
+   border-radius: 0.5vw;
+}
+
+.usuario{
+    border-bottom: 1.3vw;
+}
+
+.inputNome{
+    width: 78%;
+}
+
+.inputSenha{
+    width: 81%;
 }
 
 .senha{
-    display: flex;
+   display: flex;
    flex-direction: column;
-   gap: 25px;
+   gap: 1.3vw;
 }

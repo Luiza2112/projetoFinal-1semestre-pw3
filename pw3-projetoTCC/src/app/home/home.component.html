@@ -1,2 +1,110 @@
 <div class="container">
+
+    <div class="Adicionar">
+        <h1>Crie um Feedback:</h1>
+        <form [formGroup]="formAdicionar" class="formAdicionar">
+            <div>
+            <label>Remetente:
+                <input formControlName="remetente" class="inputRemetente"/>
+                @if (formAdicionar.get('remetente')?.touched && formAdicionar.get('remetente')?.invalid) { <!--&& form.get('username')?.invalid-->
+                    <div>
+                    @if (formAdicionar.get('remetente')?.errors?.['remetente']){
+                        <small>O remetente é obrigatório</small>
+                    }
+                    </div>
+                }
+            </label>
+            </div>
+
+            <div>
+            <label>Destinatário:
+                <input formControlName="destinatario" class="inputDestinatario"/>
+                @if (formAdicionar.get('destinatario')?.touched && formAdicionar.get('destinatario')?.invalid) { <!--&& form.get('username')?.invalid-->
+                    <div>
+                    @if (formAdicionar.get('destinatario')?.errors?.['destinatario']){
+                        <small>O destinatario é obrigatório</small>
+                    }
+                    </div>
+                }
+            </label>
+            </div>
+
+            <div>
+            <label>Descrição:
+                <input formControlName="descricao" class="inputDescricao"/>
+                @if (formAdicionar.get('descricao')?.touched && formAdicionar.get('descricao')?.invalid) { <!--&& form.get('username')?.invalid-->
+                    <div>
+                    @if (formAdicionar.get('descricao')?.errors?.['descricao']){
+                        <small>A descrição é obrigatória</small>
+                    }
+                    </div>
+                }
+                
+            </label>
+            </div>
+
+            <p>Obs: O id do Feedback é definido com base na ordem de criação, e a data é a atual.</p>
+            <button type="submit" (click)="onAdicionar()">Adicionar</button>
+        </form>
+    </div>
+
+    <div class="Consultar">
+        <h1>Procure um Feedback:</h1>
+        <form [formGroup]="formConsultar" class="formConsultar">
+            <label>Id do Feedback:
+                <input formControlName="id" class="inputId"/>
+            </label>
+        </form>
+
+    </div>
+    
+    <div class="Deletar">
+        <h1>Delete um Feedback:</h1>
+        <form [formGroup]="formDeletar" class="formDeletar">
+            <label>Id do Feedback:
+                <input formControlName="id" class="inputId"/>
+            </label>
+        </form>
+
+    </div>
+
+    <div class="Editar">
+        <h1>Edite um Feedback:</h1>
+        <form [formGroup]="formEditar" class="formEditar">
+            <div>
+            <label>Id do Feedback:
+                <input formControlName="id" class="inputId"/>
+            </label>
+            </div>
+
+            <div>
+            <label>Remetente:
+                <input formControlName="remetente" class="inputRemetente"/>
+            </label>
+            </div>
+
+            <div>
+            <label>Destinatário:
+                <input formControlName="destinatario" class="inputDestinatario"/>
+            </label>
+            </div>
+
+            <div>
+            <label>Descrição:
+                <input formControlName="descricao" class="inputDescricao"/>
+            </label>
+            </div>
+
+            <p>Obs: O id do Feedback é definido com base na ordem de criação, e a data é a atual.</p>
+        </form>
+    </div>
+
+    <div class="listaFeedbacks"> <!-- Lista para verificar se o Adicionar funciona, mas por algum motivo não tá exibindo. -->
+        <div *ngFor="let feedback of listaFeedbacks" class="feedback-card">
+            <h3>{{ feedback.remetente }} → {{ feedback.destinatario }}</h3>
+            <p>{{ feedback.descricao }}</p>
+            <small>{{ feedback.data }}</small>
+        </div>
+    </div>
+
 </div>
