@@ -3,14 +3,15 @@ import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validatio
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
   loginForm: FormGroup;
   userBase : string = 'Marion';
   passwordBase : string = '123HAS';
+  confirmBase : string = '123HAS'
   login : boolean = false;
 
   constructor(private fb: FormBuilder) {
@@ -43,18 +44,19 @@ export class LoginComponent {
     return null;
   }
 
-    onAutenticar(){
-    let username = this.loginForm.get('username')?.value;
-    let password = this.loginForm.get('password')?.value;
+  onAutenticar(){
+  let username = this.loginForm.get('username')?.value;
+  let password = this.loginForm.get('passwords.password')?.value;
+  let confirmPassword = this.loginForm.get('passwords.confirmPassword')?.value;
 
-    if(username == this.userBase && password == this.passwordBase){
-      this.login = true;
-      alert("Marion");
-    }
-    else{
-      this.login = false;
-      alert("NoMarion");
-    }
-
+  if(username == this.userBase && password == this.passwordBase && confirmPassword == this.confirmBase){
+    this.login = true;
+    alert("Marion");
   }
+  else{
+    this.login = false;
+    alert("NoMarion");
+  }
+ }
+  
 }

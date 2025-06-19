@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { CabecalhoComponent } from "../cabecalho/cabecalho.component";
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [CabecalhoComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
 

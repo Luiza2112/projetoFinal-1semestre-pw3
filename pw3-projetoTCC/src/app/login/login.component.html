@@ -1,4 +1,5 @@
-<form [formGroup]="loginForm" (ngSubmit)="submit()"> <!--[formGroup]="form"-->
+<form [formGroup]="loginForm" class="loginForm" (ngSubmit)="submit()"> <!--[formGroup]="form"-->
+ <div class="Campo">
   <div>
     <label>Usuário:
       <input formControlName="username"/>
@@ -13,7 +14,7 @@
     </label>
   </div>
 
-  <div formGroupName="passwords">
+  <div formGroupName="passwords" class="senha">
     <div>
       <label>Senha:
         <input type="password" formControlName="password">
@@ -50,5 +51,7 @@
 
   </div>
 
+  
   <button type="submit" (click)="onAutenticar()">Autenticar</button>
+ </div>
 </form>
