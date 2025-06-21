@@ -1,5 +1,5 @@
 <div class="container">
-<form [formGroup]="loginForm" class="loginForm"> <!--[formGroup]="form"-->
+<form [formGroup]="loginForm" class="loginForm" (ngSubmit)="submit()"> <!--[formGroup]="form"-->
  <div class="Campo">
   <h1>Login:</h1>
   <div class="usuario">

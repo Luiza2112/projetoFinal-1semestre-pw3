@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
@@ -26,13 +28,13 @@ export class LoginComponent {
     });
   }
 
-  /*submit() {
+  submit() {
     if (this.loginForm.valid) {
       alert('Formulário válido');
     } else {
       alert('Formulário inválido');
     }
-  }*/
+  }
                         //tipo                    //tipo             //retorno
   mesmaSenhaValidator : ValidatorFn = (formGroup : AbstractControl): ValidationErrors | null => {
     let senha = formGroup.get('password')?.value;
