@@ -1,12 +1,12 @@
 <div class="container">
-<form [formGroup]="loginForm" class="loginForm" (ngSubmit)="submit()"> <!--[formGroup]="form"-->
+<form [formGroup]="loginForm" class="loginForm"> <!--[formGroup]="form"-->
  <div class="Campo">
   <h1>Login:</h1>
   <div class="usuario">
     <label>Usuário:
       <input formControlName="username" class="inputNome"/>
 
-      @if (loginForm.get('username')?.touched && loginForm.get('username')?.invalid) { <!--&& form.get('username')?.invalid-->
+      @if (loginForm.get('username')?.touched && loginForm.get('username')?.invalid) { 
         <div>
           @if (loginForm.get('username')?.errors?.['required']){
               <small>O nome de usuário é obrigatório</small>
@@ -21,7 +21,7 @@
       <label>Senha:
         <input type="password" formControlName="password" class="inputSenha">
 
-        @if (loginForm.get('passwords.password')?.touched && loginForm.get('passwords.password')?.invalid) { <!--&& form.get('username')?.invalid-->
+        @if (loginForm.get('passwords.password')?.touched && loginForm.get('passwords.password')?.invalid) { 
           <div>
             @if (loginForm.get('passwords.password')?.errors?.['required']){
                 <small>A senha do usuário é obrigatória</small>
@@ -35,7 +35,7 @@
       <label>Confirmar senha:
         <input type="password" formControlName="confirmPassword">
 
-        @if (loginForm.get('passwords.confirmPassword')?.touched && loginForm.get('passwords.confirmPassword')?.invalid) { <!--&& form.get('username')?.invalid-->
+        @if (loginForm.get('passwords.confirmPassword')?.touched && loginForm.get('passwords.confirmPassword')?.invalid) {
           <div>
             @if (loginForm.get('passwords.confirmPassword')?.errors?.['required']){
                 <small>A confirmação de senha é obrigatória</small>
@@ -52,9 +52,8 @@
     }
 
   </div>
-
   
-  <button type="submit" (click)="onAutenticar()">Autenticar</button>
+  <button (click)="onAutenticar()">Autenticar</button>
  </div>
 </form>
 </div>

@@ -45,7 +45,7 @@
             </div>
 
             <p>Obs: O id do Feedback é definido com base na ordem de criação, e a data é a atual.</p>
-            <button type="submit" (click)="onAdicionar()">Adicionar</button>
+            <button (click)="onAdicionar()">Adicionar</button>
         </form>
     </div>
 
@@ -80,7 +80,7 @@
             </label>
             </div>
 
-                <button type="submit" (click)="onConsultar()">Consultar</button>
+                <button (click)="onConsultar()">Consultar</button>
         </form>
 
     </div>
@@ -90,7 +90,7 @@
         <form [formGroup]="formDeletar" class="formDeletar">
             <label>Id do Feedback:
                 <input formControlName="id" class="inputId"/>
-                <button type="submit" (click)="onDeletar()">Deletar</button>
+                <button (click)="onDeletar()">Deletar</button>
             </label>
         </form>
 
@@ -124,8 +124,10 @@
             </div>
 
             <p>Obs: O id do Feedback é definido com base na ordem de criação, e a data é a atual.</p>
-        <button type="submit" (click)="onEditar()">Editar</button>
+        <button (click)="onEditar()">Editar</button>
         </form>
     </div>
 
 </div>
+
+<app-rodape></app-rodape>

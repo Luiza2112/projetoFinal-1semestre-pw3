@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CabecalhoComponent } from "../cabecalho/cabecalho.component";
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { RodapeComponent } from "../rodape/rodape.component";
 
 @Component({
   selector: 'app-home',
-  imports: [ReactiveFormsModule, CabecalhoComponent], //CabecalhoComponent
+  imports: [ReactiveFormsModule, CabecalhoComponent, RodapeComponent], //CabecalhoComponent
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
