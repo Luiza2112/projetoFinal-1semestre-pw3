@@ -7,50 +7,65 @@
     font-family: "Poppins", sans-serif;
 }
 
-.container{
-    background-color: white;
-    padding-left: 36vw;
-    padding-top: 30vh;
-
-}
-
-.loginForm{
+.h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 45vh;
-    width: 25vw;
+}
+
+.loginForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 0;
     background-size: cover;
     background-position: center;
-    background-color: #78c4c2;
-    border-width: 2vw; /*Não funcionou*/
-    border-color: #196360; /*Não funcionou*/
-    border-radius: 2vh;
+    background-color: #44A1A0;
 }
 
-.campo{
+.Campo{
    display: flex;
    flex-direction: column;
-   gap: 1.3vw;
+   gap: 20px;
    background-color: white; 
-   padding: 3vw;
-   border-radius: 0.5vw;
+   padding: 60px;
+   border-radius: 10px;
 }
 
-.usuario{
-    border-bottom: 1.3vw;
-}
-
-.inputNome{
-    width: 78%;
-}
-
-.inputSenha{
-    width: 81%;
+button{
+    padding: 12px 25px;
+    background-color: #44A1A0;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
 }
 
 .senha{
-   display: flex;
+    display: flex;
    flex-direction: column;
-   gap: 1.3vw;
+   gap:20px;
+}
+
+input{
+    padding: 10px;
+    border: 1px solid darkgray;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+label{
+    display: block;
+    font-weight: 500;
+    color: #333;
+}
+
+small{
+    color:darkgray;
+    font-size: 14px;
+    margin-top: 10px;
 }

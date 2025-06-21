@@ -1,3 +1,4 @@
+<app-cabecalho></app-cabecalho>
 <div class="container">
 
     <div class="Adicionar">
@@ -54,6 +55,26 @@
             <label>Id do Feedback:
                 <input formControlName="id" class="inputId"/>
             </label>
+
+            <div>
+            <label>Remetente:
+                <input formControlName="remetente" class="inputRemetente"/>
+            </label>
+            </div>
+
+            <div>
+            <label>Destinatário:
+                <input formControlName="destinatario" class="inputDestinatario"/>
+            </label>
+            </div>
+
+            <div>
+            <label>Descrição:
+                <input formControlName="descricao" class="inputDescricao"/>
+            </label>
+            </div>
+
+                <button type="submit" (click)="onConsultar()">Consultar</button>
         </form>
 
     </div>
@@ -63,6 +84,7 @@
         <form [formGroup]="formDeletar" class="formDeletar">
             <label>Id do Feedback:
                 <input formControlName="id" class="inputId"/>
+                <button type="submit" (click)="onDeletar()">Deletar</button>
             </label>
         </form>
 
@@ -96,6 +118,7 @@
             </div>
 
             <p>Obs: O id do Feedback é definido com base na ordem de criação, e a data é a atual.</p>
+        <button type="submit" (click)="onAdicionar()">Editar</button>
         </form>
     </div>
 
