@@ -26,13 +26,13 @@ export class LoginComponent {
     });
   }
 
-  submit() {
+  /*submit() {
     if (this.loginForm.valid) {
       alert('Formulário válido');
     } else {
       alert('Formulário inválido');
     }
-  }
+  }*/
                         //tipo                    //tipo             //retorno
   mesmaSenhaValidator : ValidatorFn = (formGroup : AbstractControl): ValidationErrors | null => {
     let senha = formGroup.get('password')?.value;
@@ -52,11 +52,11 @@ export class LoginComponent {
 
   if(username == this.userBase && password == this.passwordBase && confirmPassword == this.confirmBase){
     this.login = true;
-    alert("Marion");
+    alert(`Bem-vindo, usuário ${username}`);
   }
   else{
     this.login = false;
-    alert("NoMarion");
+    alert("Usuário não identificado.");
   }
  }
   

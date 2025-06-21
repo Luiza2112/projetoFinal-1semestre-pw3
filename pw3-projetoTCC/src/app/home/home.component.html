@@ -7,7 +7,7 @@
             <div>
             <label>Remetente:
                 <input formControlName="remetente" class="inputRemetente"/>
-                @if (formAdicionar.get('remetente')?.touched && formAdicionar.get('remetente')?.invalid) { <!--&& form.get('username')?.invalid-->
+                @if (formAdicionar.get('remetente')?.touched && formAdicionar.get('remetente')?.invalid) { 
                     <div>
                     @if (formAdicionar.get('remetente')?.errors?.['remetente']){
                         <small>O remetente é obrigatório</small>
@@ -20,7 +20,7 @@
             <div>
             <label>Destinatário:
                 <input formControlName="destinatario" class="inputDestinatario"/>
-                @if (formAdicionar.get('destinatario')?.touched && formAdicionar.get('destinatario')?.invalid) { <!--&& form.get('username')?.invalid-->
+                @if (formAdicionar.get('destinatario')?.touched && formAdicionar.get('destinatario')?.invalid) { 
                     <div>
                     @if (formAdicionar.get('destinatario')?.errors?.['destinatario']){
                         <small>O destinatario é obrigatório</small>
@@ -33,7 +33,7 @@
             <div>
             <label>Descrição:
                 <input formControlName="descricao" class="inputDescricao"/>
-                @if (formAdicionar.get('descricao')?.touched && formAdicionar.get('descricao')?.invalid) { <!--&& form.get('username')?.invalid-->
+                @if (formAdicionar.get('descricao')?.touched && formAdicionar.get('descricao')?.invalid) {
                     <div>
                     @if (formAdicionar.get('descricao')?.errors?.['descricao']){
                         <small>A descrição é obrigatória</small>
@@ -71,6 +71,12 @@
             <div>
             <label>Descrição:
                 <input formControlName="descricao" class="inputDescricao"/>
+            </label>
+            </div>
+
+            <div>
+            <label>Data:
+                <input formControlName="data" class="inputData" readonly/> <!-- O readonly permite exibir e manipular a Data, mas não editar. -->
             </label>
             </div>
 
@@ -118,16 +124,8 @@
             </div>
 
             <p>Obs: O id do Feedback é definido com base na ordem de criação, e a data é a atual.</p>
-        <button type="submit" (click)="onAdicionar()">Editar</button>
+        <button type="submit" (click)="onEditar()">Editar</button>
         </form>
-    </div>
-
-    <div class="listaFeedbacks"> <!-- Lista para verificar se o Adicionar funciona, mas por algum motivo não tá exibindo. -->
-        <div *ngFor="let feedback of listaFeedbacks" class="feedback-card">
-            <h3>{{ feedback.remetente }} → {{ feedback.destinatario }}</h3>
-            <p>{{ feedback.descricao }}</p>
-            <small>{{ feedback.data }}</small>
-        </div>
     </div>
 
 </div>

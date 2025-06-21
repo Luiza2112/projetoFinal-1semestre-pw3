@@ -36,14 +36,16 @@ criarForms() {
     this.formAdicionar = this.fb.group({
       remetente: ['', [Validators.required, Validators.maxLength(50)]],
       destinatario: ['', [Validators.required, Validators.maxLength(50)]],
-      descricao: ['', [Validators.required, Validators.maxLength(450)]]
+      descricao: ['', [Validators.required, Validators.maxLength(450)]],
+      data: ['']
     });
 
     this.formConsultar = this.fb.group({
       id: ['', [Validators.required]],
       remetente: ['', [Validators.required, Validators.maxLength(50)]],
       destinatario: ['', [Validators.required, Validators.maxLength(50)]],
-      descricao: ['', [Validators.required, Validators.maxLength(450)]]
+      descricao: ['', [Validators.required, Validators.maxLength(450)]],
+      data: ['']
     });
 
     this.formDeletar = this.fb.group({
@@ -54,20 +56,24 @@ criarForms() {
       id: ['', [Validators.required]],
       remetente: ['', [Validators.required, Validators.maxLength(50)]],
       destinatario: ['', [Validators.required, Validators.maxLength(50)]],
-      descricao: ['', [Validators.required, Validators.maxLength(450)]]
+      descricao: ['', [Validators.required, Validators.maxLength(450)]],
+      data: ['']
     });
   }
 
   onAdicionar() {
     if (this.formAdicionar.valid) {
+      const dataAtual = this.formatarDataAtual();
+      this.formAdicionar.get('data')?.setValue(dataAtual);
+
       const novoFeedback = this.formAdicionar.value;
 
       this.listaFeedbacks.push(novoFeedback);
 
       this.formAdicionar.reset();
-      alert('Feedback criado com sucesso.');
+      alert("Feedback criado com sucesso.");
     } else {
-      alert('Feedback inválido!');
+      alert("Feedback inválido!");
     }
   }
 
@@ -79,12 +85,14 @@ criarForms() {
       this.formConsultar.controls['remetente'].setValue(feedback.remetente);
       this.formConsultar.controls['destinatario'].setValue(feedback.destinatario);
       this.formConsultar.controls['descricao'].setValue(feedback.descricao);
+      this.formConsultar.controls['data'].setValue(feedback.data);
       //alert('Remetente: ' + feedback.remetente + '\nDestinatário: ' + feedback.destinatario + '\nDescrição: ' + feedback.descricao);
     } else {
       this.formConsultar.controls['remetente'].setValue('');
       this.formConsultar.controls['destinatario'].setValue('');
       this.formConsultar.controls['descricao'].setValue('');
-      alert('Nenhum feedback com esse ID.');
+      this.formConsultar.controls['data'].setValue('');
+      alert("Nenhum feedback com esse ID.");
     }
   }
 
@@ -94,10 +102,39 @@ criarForms() {
     if (id >= 0 && id < this.listaFeedbacks.length) {
       this.listaFeedbacks.splice(id, 1); // Remove 1 item no índice "id"
       this.formDeletar.reset();
-      alert('Feeback foi deletado.')
+      alert("Feeback foi deletado.")
     } else {
-      alert('Nenhum feedback com esse ID.');
+      alert("Nenhum feedback com esse ID.");
     }
+  }
+
+  onEditar(){
+    const id = this.formEditar.value.id;
+
+    if (id >= 0 && id < this.listaFeedbacks.length) {
+      const feedbackEditado = {
+      remetente: this.formEditar.value.remetente,
+      destinatario: this.formEditar.value.destinatario,
+      descricao: this.formEditar.value.descricao,
+      data: [this.formatarDataAtual()]
+      };
+
+      this.listaFeedbacks[id] = feedbackEditado;
+
+      alert("Feedback atualizado com sucesso!");
+      this.formEditar.reset();
+
+    }
+    else{
+      alert("Nenhum feedback com esse ID.");
+    }
+
+  }
+
+  formatarDataAtual(): string{
+    const data = new Date();
+    return data.toISOString().split('T')[0].split('-').reverse().join('/');
+    // Pegando só a parte da data, sem horário, tirando o hífen, invertendo para o formato dia/mês/ano e colocando barra.
   }
 }
 

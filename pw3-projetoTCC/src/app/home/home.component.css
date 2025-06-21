@@ -14,64 +14,65 @@
 }
 
 .container{
-    padding: 40px;
+    padding: 3vw;
     background-color: #f0f4f5;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 4vh;
 }
 
 .Adicionar{
    display: flex;
    flex-direction: column;
-   gap: 20px;
+   gap: 3vh;
    background-color: white; 
-   padding: 60px;
-   border-radius: 10px;
+   padding: 4.5vw;
+   border-radius: 1vw;
 }
 
 .Consultar{
    display: flex;
    flex-direction: column;
-   gap: 20px;
+   gap: 3vh;
    background-color: white; 
-   padding: 60px;
-   border-radius: 10px;
+   padding: 4.5vw;
+   border-radius: 1vw;
 }
 
 .Editar{
    display: flex;
    flex-direction: column;
-   gap: 20px;
+   gap: 3vh;
    background-color: white; 
-   padding: 60px;
-   border-radius: 10px; 
+   padding: 4.5vw;
+   border-radius: 1vw; 
 }
 
 .Deletar{
    display: flex;
    flex-direction: column;
-   gap: 20px;
+   gap: 3vw;
    background-color: white; 
-   padding: 60px;
-   border-radius: 10px;
+   padding: 4.5vw;
+   border-radius: 1vw;
 }
 
 button {
-    padding: 12px 25px;
+    padding: 1.8vh 1.8vw;
     background-color: #44A1A0;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 0.4vw;
     cursor: pointer;
     font-weight: 600;
 }
 
 p{
-    color:darkgray;
-    font-size: 14px;
-    margin-top: 10px;
+    color:rgb(128, 119, 119);
+    font-size: 1vw;
+    margin-top: 1.2vh;
+    margin-bottom: 0.8vh;
 }
 
 label{
@@ -81,10 +82,10 @@ label{
 }
 
 input{
-    padding: 10px;
+    padding: 0.8vw;
     border: 1px solid darkgray;
-    border-radius: 6px;
+    border-radius: 0.5vw;
     width: 100%;
-    margin-top: 5px;
-    margin-bottom: 15px;
+    margin-top: 1vh;
+    margin-bottom: 2.5vh;
 }
