@@ -17,7 +17,7 @@ export class LoginComponent {
   confirmBase : string = '123HAS'
   login : boolean = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
       passwords: this.fb.group({
@@ -55,6 +55,7 @@ export class LoginComponent {
   if(username == this.userBase && password == this.passwordBase && confirmPassword == this.confirmBase){
     this.login = true;
     alert(`Bem-vindo, usuário ${username}`);
+    this.router.navigate(['/home']);
   }
   else{
     this.login = false;

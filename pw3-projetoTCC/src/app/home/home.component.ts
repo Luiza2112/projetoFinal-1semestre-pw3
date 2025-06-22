@@ -5,6 +5,7 @@ import { RodapeComponent } from "../rodape/rodape.component";
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [ReactiveFormsModule, CabecalhoComponent, RodapeComponent], //CabecalhoComponent
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
